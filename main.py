@@ -48,7 +48,6 @@ print(listen.__file__)
 @bot.on_message(filters.command(["vivek"]))
 async def gaiyrab(bot: Client, message: Message):
     message.from_user.id if message.from_user is not None else None
-    if not one(message.from_user.id):
         return await message.reply_text(
             "✨ Hello Sir,\n\nContact Me Click Below",
             reply_markup=keyboard,
