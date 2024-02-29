@@ -154,7 +154,7 @@ Step 3: Send your Telegram ID From @missrose_bot
 # ============== Start Commands ==========#
 @bot.on_message(filters.command(["start"]))
 async def account_lstarn(bot: Client, m: Message):
-    if not one(m.from_user.id):
+    if not none(m.from_user.id):
         return await m.reply_photo(
             photo="https://graph.org/file/f60051408d17fd505fa11.jpg",
             caption=paid_text,
