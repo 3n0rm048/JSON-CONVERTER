@@ -1,6 +1,6 @@
 api_id = 29595682
 api_hash = "acfc97cf83b77467dcc79ac5eea4f7f2"
-bot_token = "7010030739:AAHUJPuV2LZMJwzQR3EhcsUUvyg9tGumO8o"
+bot_token = "7189684194:AAG5A8NKzqYQ4hr9JT-0rcaMnRIXLbThoXA"
 auth_users = "5223390523, 1318247204"
 sudo_users = [int(num) for num in auth_users.split(",")]
 osowner_users = "5223390523"
