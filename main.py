@@ -45,7 +45,7 @@ print(listen.__file__)
 
 
 # ========== Converter =============#
-@bot.on_message(filters.command(["taiyaric"]))
+@bot.on_message(filters.command(["vivek"]))
 async def gaiyrab(bot: Client, message: Message):
     message.from_user.id if message.from_user is not None else None
     if not one(message.from_user.id):
@@ -101,96 +101,6 @@ async def gaiyrab(bot: Client, message: Message):
         await asyncio.sleep(5)
         doc = await message.reply_document(document=f, caption="Here is your txt file.")
 
-
-# =========== Core Commands ======#
-
-shell_usage = f"**USAGE:** Executes terminal commands directly via bot.\n\n<pre>/shell pip install requests</pre>"
-
-
-@bot.on_message(filters.command(["shell"]))
-async def shell(client, message: Message):
-    """
-    Executes terminal commands via bot.
-    """
-    if not two(message.from_user.id):
-        return
-
-    if len(message.command) < 2:
-        return await message.reply_text(shell_usage, quote=True)
-
-    user_input = message.text.split(None, 1)[1].split(" ")
-
-    try:
-        shell = subprocess.Popen(
-            user_input, stdout=subprocess.PIPE, stderr=subprocess.PIPE
-        )
-
-        stdout, stderr = shell.communicate()
-        result = str(stdout.decode().strip()) + str(stderr.decode().strip())
-
-    except Exception as error:
-        logging.info(f"{error}")
-        return await message.reply_text(f"**Error**:\n\n{error}", quote=True)
-
-    if len(result) > 2000:
-        file = BytesIO(result.encode())
-        file.name = "output.txt"
-        await message.reply_text("Output is too large (Sending it as File)", quote=True)
-        await client.send_document(message.chat.id, file, caption=file.name)
-    else:
-        await message.reply_text(f"**Output:**:\n\n{result}", quote=True)
-
-
-paid_text = """
-» Hello i am online class bot which help you to **Extract** and **Download** video of Physics Wallah / Apni Kaksha / Khan Gs ..... Any Type of Online Class Which You Want.
-• **How to Access this bot**
-
-Step 1: Click Below on Developer.
-Step 2: Go to Telegram Username
-Step 3: Send your Telegram ID From @missrose_bot
-"""
-
-
-# ============== Start Commands ==========#
-@bot.on_message(filters.command(["start"]))
-async def account_lstarn(bot: Client, m: Message):
-        return await m.reply_photo(
-            photo="https://graph.org/file/f60051408d17fd505fa11.jpg",
-            caption=paid_text,
-            reply_markup=keyboard,
-        )
-    await m.reply_text(start_text)
-
-
-# ========== Global Concel Command ============
-cancel = False
-
-
-@bot.on_message(filters.command(["cancel"]))
-async def cancel(_, m):
-    if not two(m.from_user.id):
-        return await m.reply_text(
-            "✨ Hello Sir,\n\nThis Command is only For Owner",
-            reply_markup=keyboard,
-        )
-    editable = await m.reply_text(
-        "Canceling All process Plz wait\n🚦🚦 Last Process Stopped 🚦🚦"
-    )
-    global cancel
-    cancel = False
-    await editable.edit("cancelled all")
-    return
-
-
-# ============== Power Commands =================
-@bot.on_message(filters.command("restart"))
-async def restart_handler(_, m):
-    if not two(m.from_user.id):
-        return await m.reply_text(
-            "✨ Hello Sir,\n\nYou Don't Have Right To Access This Contact Owner",
-        )
-    await m.reply_text("➭ 𝗕𝗼𝘁 𝗜𝘀 𝗕𝗲𝗶𝗻𝗴 𝗥𝗲𝘀𝘁𝗮𝗿𝘁𝗶𝗻𝗴. 𝗣𝗹𝗲𝗮𝘀𝗲 𝗞𝗲𝗲𝗽 𝗣𝗮𝘁𝗶𝗲𝗻𝗰𝗲", True)
-    os.execl(sys.executable, sys.executable, *sys.argv)
 
 
 # ============ Download Commands ==============#
