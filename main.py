@@ -18,7 +18,7 @@ from pyromod import listen
 import online.helpers.vid as helper
 from online.Config import *
 from online.helpers.button import keyboard
-from online.helpers.sudouers import *
+from online.helpers.sudo_users import *
 from online.helpers.text import *
 
 # ==========Logging==========#
